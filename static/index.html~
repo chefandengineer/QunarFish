@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<!--
+	Miniport 1.0 by HTML5 Up!
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Transportation Sentiment</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,600,700" rel="stylesheet" />
+		<link href="css/menu_assets/styles.css" rel="stylesheet" type="text/css">
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="css/5grid/init.js?use=mobile,desktop,1000px"></script>
+		<script src="js/init.js"></script>
+		<script src="js/persist.js"></script >
+
+		<!--For the starting charts-->
+		
+		<script src="http://code.highcharts.com/highcharts.js"></script>
+		<script src="js/home-charts.js"></script>
+		<script src="js/theme/gray.js"></script>
+		<script src="http://code.highcharts.com/modules/exporting.js"></script>
+		<script language="javascript">
+		
+		$(function () {
+			load_data("Pennsylvania");
+			});
+		</script>
+
+		<noscript>
+			<link rel="stylesheet" href="css/5grid/core.css" />
+			<link rel="stylesheet" href="css/5grid/core-desktop.css" />
+			<link rel="stylesheet" href="css/5grid/core-1200px.css" />
+			<link rel="stylesheet" href="css/5grid/core-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+		
+	</head>
+	<body>
+	    <!-- Menu Bar-->
+		<div id='cssmenu'>
+		<div id="title" style="float: left;color:white">
+		Transportation Sentiment Analysis
+		</div>
+		<ul style="margin: 0 auto;width:40%;">
+   			 <li class='active'><a href='http://transportation.heinz.cmu.edu/index.html'><span>Home</span></a></li>
+   			 <li class='has-sub'><a href='#'><span>condition</span></a>
+      		<ul>
+           <li><a href='#'><span>Location</span></a></li>
+           <li class='last'><a href='#'><span>Topic</span></a></li>
+          </ul>
+         </li>
+         <li><a href='http://transportation.heinz.cmu.edu/map.html'><span>Map</span></a></li>
+         <li class='last'><a href='#'><span>Contact</span></a></li>
+         </ul> 
+      </div>
+		<!--End of Menu Bar-->
+	
+		<!-- Top List Section -->
+			<div class="wrapper wrapper-style2"> 
+				<article id="work">
+				
+
+					<div class="5grid-layout">
+							<br></br>				
+						<div class="row">
+   							<div id="seewordclod" style="float:right;text-align:right;font-size:90%">
+   								<a href="http://transportation.heinz.cmu.edu/wordcloud.html" onclick="            storeVariable(0,0);">wordcloud</a> </div>
+   							<div id="state" value="Arizona" style="float:right;text-align:right;font-size:200%">
+   							</div>
+   							<select id="states" style="float:left;" onChange="load_data(this.value)">
+									<option value="Alabama">Alabama</option>
+	  	           					<option value="Alaska">Alaska</option>
+	<option value="Arizona">Arizona</option>
+	<option value="Arkansas">Arkansas</option>
+	<option value="California">California</option>
+	<option value="Colorado">Colorado</option>
+	<option value="Connecticut">Connecticut</option>
+	<option value="Delaware">Delaware</option>
+	<option value="District Of Columbia">District Of Columbia</option>
+	<option value="Florida">Florida</option>
+	<option value="Georgia">Georgia</option>
+	<option value="Hawaii">Hawaii</option>
+	<option value="Idaho">Idaho</option>
+	<option value="Illinois">Illinois</option>
+	<option value="Indiana">Indiana</option>
+	<option value="Iowa">Iowa</option>
+	<option value="Kansas">Kansas</option>
+	<option value="Kentucky">Kentucky</option>
+	<option value="Louisiana">Louisiana</option>
+	<option value="Maine">Maine</option>
+	<option value="Maryland">Maryland</option>
+	<option value="Massachusetts">Massachusetts</option>
+	<option value="Michigan">Michigan</option>
+	<option value="Minnesota">Minnesota</option>
+	<option value="Mississippi">Mississippi</option>
+	<option value="Missouri">Missouri</option>
+	<option value="Montana">Montana</option>
+	<option value="Nebraska">Nebraska</option>
+	<option value="Nevada">Nevada</option>
+	<option value="New Hampshire">New Hampshire</option>
+	<option value="New Jersey">New Jersey</option>
+	<option value="New Mexico">New Mexico</option>
+	<option value="New York" >New York</option>
+	<option value="North Carolina">North Carolina</option>
+	<option value="North Dakota<">North Dakota</option>
+	<option value="Ohio">Ohio</option>
+	<option value="Oklahoma">Oklahoma</option>
+	<option value="Oregon">Oregon</option>
+	<option value="Pennsylvania"  selected="selected">Pennsylvania</option>
+	<option value="Rhode Island">Rhode Island</option>
+	<option value="South Carolina">South Carolina</option>
+	<option value="South Dakota">South Dakota</option>
+	<option value="Tennessee">Tennessee</option>
+	<option value="Texas">Texas</option>
+	<option value="Utah">Utah</option>
+	<option value="Vermont">Vermont</option>
+	<option value="Virginia">Virginia</option>
+	<option value="Washington">Washington</option>
+	<option value="West Virginia">West Virginia</option>
+	<option value="Wisconsin">Wisconsin</option>
+	<option value="Wyoming">Wyoming</option>
+</select>	
+
+
+
+
+							<div id="seperator" style="float:left;width:20px">     </div>
+							</select>
+							<select id="months" style="float:left;" onChange="loadFile(this.value)">
+								<option value="02">Feb</option>
+								<option value="03">Mar</option>
+								<option value="04">Apr</option>
+								<option value="05">May</option>
+							</select>
+						</div>
+						<div>
+							<div class="line horizontal"></div>
+	
+						</div>
+						<br>
+						<div class = "row">
+							<div id="sentiment_score" class="sentiment_score" font-size="150%"></div>
+							<!--div id="time" class="tooltip"></div--> 
+							<div id="growth" class="tooltip">--</div>
+							<div id="growth_rate" class="tooltip">--</div>
+							<div id="high" class="tooltip2">--</div>
+							<div id="low" class="tooltip2">--</div>
+							<div id="avg" class="tooltip2">--</div>
+							<div id="time" style="float:right">--</div>
+						</div>
+						<br>
+						<div class="row">
+							<div id="container" style="min-width: 200px; height: 300px; margin: 0 auto"></div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="line horizontal"></div>
+						</div>
+						<br>
+						<h5 class="description">What's been talking...</h5>
+
+						<div class="row">
+
+							<div class="4u">
+								<section class="box box-style1">
+								<!--	<span class="image image-centered"><img src="images/work01.png" alt="" /></span> -->
+									<h3>Top Topics</h3>
+									<ul>
+									  <li><a href="#" class="first-level" id = "topic1">--</a></li>
+									  <li><a href="#" class="first-level" id = "topic2">--</a></li>
+									  <li><a href="#" class="second-level" id = "topic3">--</a></li>
+									  <li><a href="#" class="second-level" id = "topic4">--</a></li>
+									  <li><a href="#" class="second-level" id = "topic5">--</a></li>
+									  <li><a href="#" class="second-level" id = "topic6">--</a></li>
+									  <li><a href="#" class="third-level" id = "topic7">--</a></li>
+									  <li><a href="#" class="third-level" id = "topic8">--</a></li>
+									  <li><a href="#" class="third-level" id = "topic9">--</a></li>
+									  <li><a href="#" class="third-level" id = "topic10">--</a></li>
+									</ul>
+								</section>
+							</div>
+								<div class="4u">
+								<section class="box box-style1">
+								<!--	<span class="image image-centered"><img src="images/work02.png" alt="" /></span> -->
+									<h3>Top Users</h3>
+									<ul>
+										<li><a href="#" class="first-level" id = "user1">--</a></li>
+									  <li><a href="#" class="first-level" id = "user2">--</a></li>
+									  <li><a href="#" class="second-level" id = "user3">--</a></li>
+									  <li><a href="#" class="second-level" id = "user4">--</a></li>
+									  <li><a href="#" class="second-level" id = "user5">--</a></li>
+									  <li><a href="#" class="second-level" id = "user6">--</a></li>
+									  <li><a href="#" class="third-level" id = "user7">--</a></li>
+									  <li><a href="#" class="third-level" id = "user8">--</a></li>
+									  <li><a href="#" class="third-level" id = "user9">--</a></li>
+									  <li><a href="#" class="third-level" id = "user10">--</a></li>
+									</ul>
+								</section>
+							</div>
+								<div class="4u">
+								<section class="box box-style1">
+									<!--<span class="image image-centered"><img src="images/work03.png" alt="" /></span> -->
+									<h3>Top Locations</h3>
+									<ul>
+									 <li><a href="#" class="first-level" id = "location1">--</a></li>
+									  <li><a href="#" class="first-level" id = "location2">--</a></li>
+									  <li><a href="#" class="second-level" id = "location3">--</a></li>
+									  <li><a href="#" class="second-level" id = "location4">--</a></li>
+									  <li><a href="#" class="second-level" id = "location5">--</a></li>
+									  <li><a href="#" class="second-level" id = "location6">--</a></li>
+									  <li><a href="#" class="third-level" id = "location7">--</a></li>
+									  <li><a href="#" class="third-level" id = "location8">--</a></li>
+									  <li><a href="#" class="third-level" id = "location9">--</a></li>
+									  <li><a href="#" class="third-level" id = "location10">--</a></li>
+									</ul>
+									</section>
+								</div>
+							</div>
+							</div>
+			
+		</article>
+	</div>
+
+		<!-- Contact -->
+		<div class="wrapper wrapper-style4">
+					<footer>
+						<p class="contact" style=" font-size: 90%">
+							&copy; 2013 Carnegie Mellon University | Images: <a href="http://fotogrph.com">Heinz</a> + <a hßref="http://iconify.it">College</a> | Design: <a href="http://html5up.net/">Special Thanks to HTML5 Up!</a>
+						</p>
+					</footer>
+			</div>
+	</body>
+
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<!--
+	Miniport 1.0 by HTML5 Up!
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Transportation Sentiment</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,600,700" rel="stylesheet" />
+		<link href="css/menu_assets/styles.css" rel="stylesheet" type="text/css">
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="css/5grid/init.js?use=mobile,desktop,1000px"></script>
+		<script src="js/init.js"></script>
+		<script src="js/d3.js"></script>
+		<script src="js/d3.layout.cloud.js"></script>
+		<script src="js/persist.js"></script>
+		<!--For the starting charts-->
+		<script src="http://code.highcharts.com/highcharts.js"></script>
+		<script src="js/home-charts.js"></script>
+		<script src="js/theme/gray.js"></script>
+		<script src="js/wordcloud.js"></script>
+		<script src="http://code.highcharts.com/modules/exporting.js"></script>
+		<script language="javascript">
+		
+		$(function () {
+		//basic_chart();
+		loadStateWordCloud();
+		
+		});
+		</script>
+		<noscript>
+			<link rel="stylesheet" href="css/5grid/core.css" />
+			<link rel="stylesheet" href="css/5grid/core-desktop.css" />
+			<link rel="stylesheet" href="css/5grid/core-1200px.css" />
+			<link rel="stylesheet" href="css/5grid/core-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+		
+	</head>
+	<body>
+	    <!-- Menu Bar-->
+		<div id='cssmenu'>
+		<div id="title" style="float: left;color:white">
+		Transportation Sentiment Analysis
+		</div>
+		<ul style="margin: 0 auto;width:40%;">
+   			 <li class='active'><a href='http://transportation.heinz.cmu.edu/index.html'><span>Home</span></a></li>
+   			 <li class='has-sub'><a href='#'><span>condition</span></a>
+      		<ul>
+           <li><a href='#'><span>Location</span></a></li>
+           <li class='last'><a href='#'><span>Topic</span></a></li>
+          </ul>
+         </li>
+         <li><a href='http://transportation.heinz.cmu.edu/map.html'><span>Map</span></a></li>
+         <li class='last'><a href='#'><span>Contact</span></a></li>
+         </ul> 
+      </div>
+		<!--End of Menu Bar-->
+	
+		<!-- Top List Section -->
+			<div class="wrapper wrapper-style2"> 
+				<article id="work">
+				
+
+					<div class="5grid-layout">
+							<br></br>							
+						<div class="row">
+							<div id="topic" style="float:left;font-size:200%;color:red"></div>   	
+							<div id="sentiment_score" class="sentiment_score" font-size="150%"></div>
+							<div id="state" value="Arizona" style="float:right;text-align:right;font-size:200%"></div>				
+						</div>
+						<div>
+							<div class="line horizontal"></div>
+	
+						</div>
+						<br>
+						<div class = "row">
+							<div id="actualtweet" style="float:left"></div>
+							<div id="time" style="float:right">--</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="4u" id="container"><button style="float:left" id="previous day" onclick="prevCloud();return false;">previous</button></div>
+							<div class="6u" style="margin:0;padding:0;"> <div id="wordcloud"> </div></div>
+							<div class="2u" id="container"><button style="float:right" id="previous" onclick="nextCloud();return false;">Next Day</button></div>
+
+
+						</div>
+
+						<br>
+						<br>
+						<div class="row">
+							<div class="line horizontal"></div>
+						</div>
+						<br>
+						<br>
+						
+					</div>
+					</article>
+				</div>
+
+
+						<div style='overflow: scroll;height:200px'>
+							<div id="wordcloud1"></div>
+							<div id="wordcloud2"></div>
+						<!--<div class="4u"><div id="wordcloud1"></div></div>
+							<div class="4u"><div id="wordcloud2"></div></div>
+							<div class="4u"><div id="wordcloud3"></div></div> -->
+						</div>
+		<!-- Contact -->
+		<div class="wrapper wrapper-style4">
+					<footer>
+						<p class="contact" style=" font-size: 90%">
+							&copy; 2013 Carnegie Mellon University | Images: <a href="http://fotogrph.com">Heinz</a> + <a href="http://iconify.it">College</a> | Design: <a href="http://html5up.net/">Special Thanks to HTML5 Up!</a>
+						</p>
+					</footer>
+			</div>
+	</body>
+</html>

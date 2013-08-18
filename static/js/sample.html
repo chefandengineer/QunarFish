@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<!--
+	Miniport 1.0 by HTML5 Up!
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Transportation Sentiment</title>
+				<script src="jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="jquery.jtweetsanywhere-1.3.1.min.js"></script>
+<script type="text/javascript" src="jtweetsanywhere-de-1.3.1.min.js"></script>
+<script type="text/javascript" src="http://platform.twitter.com/anywhere.js?id=APIKey&v=1"></script>
+<link rel="stylesheet" type="text/css" href="jquery.jtweetsanywhere-1.3.1.css" />
+		//Gnerate a dynamic chart
+	</head>
+<body>
+
+
+<script type="javascript">
+<div id="jTweetsAnywhereSample"></div>
+$('#jTweetsAnywhereSample').jTweetsAnywhere({
+    searchParams: ['geocode=48.856667,2.350833,30km'],
+    count: 10});
+</script>
+
+<div id="jTweetsAnywhereSample1">
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#jTweetsAnywhereSample1').jTweetsAnywhere({
+        username: 'tbillenstein',
+        list: 'favorites',
+        count: 4,
+        showTweetFeed: {
+            showUserFullNames: true,
+            showSource: true,
+            showActionReply: true,
+            showActionRetweet: true,
+            showActionFavorite: true,
+            paging: {
+                mode: 'more'
+            }
+        }
+    });
+});
+</script>
+
+</body>
+</html>
